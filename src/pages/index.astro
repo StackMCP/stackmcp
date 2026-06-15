@@ -398,7 +398,7 @@ import "../styles/global.css";
           early access, and community updates.
         </p>
 
-        <form
+        <form id="waitlist-form"
           style="
             display: flex;
             gap: 0.75rem;
@@ -407,7 +407,6 @@ import "../styles/global.css";
             flex-wrap: wrap;
             justify-content: center;
           "
-          onsubmit="event.preventDefault(); alert('Waitlist coming soon — thanks for your interest!');"
         >
           <input
             type="email"
@@ -460,6 +459,15 @@ import "../styles/global.css";
         </p>
       </div>
     </section>
+
+    <script>
+      document
+        .getElementById("waitlist-form")
+        ?.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Waitlist coming soon — thanks for your interest!");
+        });
+    </script>
 
     <!-- Footer -->
     <footer
