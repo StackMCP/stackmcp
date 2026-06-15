@@ -12,8 +12,10 @@ import "../styles/global.css";
       name="description"
       content="Connect GitHub, Obsidian, YouTube, Gmail, RSS, Discord, and MCP servers into reusable workflow stacks."
     />
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -23,18 +25,67 @@ import "../styles/global.css";
       <div class="container flex items-center">
         <div class="flex items-center">
           <a class="header-logo me-4" href="/">
-            <svg width="110" height="20" viewBox="0 0 143 25" xmlns="http://www.w3.org/2000/svg">
-              <text x="0" y="18" fill="currentColor" font-family="Inter, sans-serif" font-weight="700" font-size="18">StackMCP</text>
+            <svg role="img" aria-label="StackMCP" height="28" viewBox="0 0 150 28" width="150" xmlns="http://www.w3.org/2000/svg">
+              <svg x="0" y="0" width="26" height="28" viewBox="180 180 660 750" overflow="visible">
+                <defs>
+                  <linearGradient id="botTop" x1="25%" y1="15%" x2="80%" y2="95%">
+                    <stop offset="0%" stop-color="#2E528A"/><stop offset="100%" stop-color="#1A3A6A"/>
+                  </linearGradient>
+                  <linearGradient id="botLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1A3A6A"/><stop offset="100%" stop-color="#0E2442"/>
+                  </linearGradient>
+                  <linearGradient id="botRight" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#142E52"/><stop offset="100%" stop-color="#081830"/>
+                  </linearGradient>
+                  <linearGradient id="midTop" x1="25%" y1="15%" x2="80%" y2="95%">
+                    <stop offset="0%" stop-color="#5A8CFF"/><stop offset="100%" stop-color="#346BFF"/>
+                  </linearGradient>
+                  <linearGradient id="midLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#7AA6FF"/><stop offset="100%" stop-color="#346BFF"/>
+                  </linearGradient>
+                  <linearGradient id="midRight" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#346BFF"/><stop offset="100%" stop-color="#2550CC"/>
+                  </linearGradient>
+                  <linearGradient id="topTop" x1="25%" y1="15%" x2="80%" y2="95%">
+                    <stop offset="0%" stop-color="#93C8FF"/><stop offset="100%" stop-color="#6FAEFF"/>
+                  </linearGradient>
+                  <linearGradient id="topLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#B0DCFF"/><stop offset="100%" stop-color="#6FAEFF"/>
+                  </linearGradient>
+                  <linearGradient id="topRight" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#6FAEFF"/><stop offset="100%" stop-color="#5290E0"/>
+                  </linearGradient>
+                </defs>
+                <g transform="translate(512 680)">
+                  <polygon points="0,-100 220,0 0,100 -220,0" fill="url(#botTop)"/>
+                  <polygon points="-220,0 0,100 0,170 -220,70" fill="url(#botLeft)"/>
+                  <polygon points="220,0 0,100 0,170 220,70" fill="url(#botRight)"/>
+                </g>
+                <g transform="translate(512 520)">
+                  <polygon points="0,-100 220,0 0,100 -220,0" fill="url(#midTop)"/>
+                  <polygon points="-220,0 0,100 0,170 -220,70" fill="url(#midLeft)"/>
+                  <polygon points="220,0 0,100 0,170 220,70" fill="url(#midRight)"/>
+                </g>
+                <g transform="translate(512 360)">
+                  <polygon points="0,-100 230,0 0,100 -230,0" fill="url(#topTop)"/>
+                  <polygon points="-230,0 0,100 0,180 -230,80" fill="url(#topLeft)"/>
+                  <polygon points="230,0 0,100 0,180 230,80" fill="url(#topRight)"/>
+                </g>
+              </svg>
+              <text x="30" y="20" fill="currentColor" font-family="Sora, Inter, sans-serif" font-weight="600" font-size="20" letter-spacing="-0.02">StackMCP</text>
             </svg>
           </a>
         </div>
         <div class="group w-full">
           <ul class="text-sm hidden md:flex items-center">
-            <li><a class="nav-link" href="#how-it-works">How it works</a></li>
-            <li><a class="nav-link" href="#why">Why StackMCP</a></li>
+            <li><a class="nav-link" href="https://github.com/StackMCP/stackmcp/releases">Download</a></li>
+            <li><a class="nav-link" href="#waitlist">Pricing</a></li>
+            <li><a class="nav-link" href="/docs/daemon-model.md">Sync</a></li>
+            <li><a class="nav-link" href="/workflows/README.md">Publish</a></li>
+            <li><a class="nav-link" href="#waitlist">Enterprise</a></li>
             <li class="flex-grow" aria-hidden="true"></li>
-            <li><a class="nav-link" href="https://github.com/StackMCP/stackmcp">GitHub</a></li>
-            <li><a class="btn-nav" href="#waitlist">Waitlist</a></li>
+            <li><a class="nav-link" href="https://github.com/StackMCP/stackmcp">Community</a></li>
+            <li><a class="nav-link" href="#waitlist">Account</a></li>
           </ul>
         </div>
         <div class="ms-auto md:hidden z-10 flex items-center gap-4">
@@ -48,74 +99,30 @@ import "../styles/global.css";
     </header>
 
     <!-- Hero -->
-    <header style="padding: 6rem 0 4rem; text-align: center;">
-      <div class="container" style="max-width: 800px;">
-        <h1
-          style="
-            font-size: clamp(2.5rem, 6vw, 3.75rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 1.25rem;
-          "
-        >
-          Build AI workflows<br />
-          <span style="color: var(--color-accent);">from the tools you already use.</span>
-        </h1>
-        <p
-          style="
-            font-size: 1.05rem;
-            color: var(--color-text-muted);
-            max-width: 560px;
-            margin: 0 auto 2rem;
-            line-height: 1.7;
-          "
-        >
-          Connect GitHub, Obsidian, YouTube, Gmail, RSS, Discord, and MCP
-          servers into reusable workflow stacks.
-        </p>
-        <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
-          <a
-            href="#demo"
-            style="
-              display: inline-flex;
-              align-items: center;
-              gap: 0.4rem;
-              background: var(--color-accent);
-              color: #fff;
-              font-weight: 600;
-              font-size: 0.9rem;
-              padding: 0.75rem 1.5rem;
-              border-radius: var(--radius-sm);
-              transition: background 0.15s;
-            "
-            onmouseover="this.style.background='var(--color-accent-hover)'"
-            onmouseout="this.style.background='var(--color-accent)'"
-          >
-            Try demo
-          </a>
-          <a
-            href="#waitlist"
-            style="
-              display: inline-flex;
-              align-items: center;
-              gap: 0.4rem;
-              color: var(--color-text);
-              font-weight: 500;
-              font-size: 0.9rem;
-              padding: 0.75rem 1.5rem;
-              border: 1px solid var(--color-border);
-              border-radius: var(--radius-sm);
-              transition: border-color 0.15s;
-            "
-            onmouseover="this.style.borderColor='var(--color-text-muted)'"
-            onmouseout="this.style.borderColor='var(--color-border)'"
-          >
-            Join waitlist
-          </a>
+    <div style="padding-top: 6rem;">
+      <header class="container mb-12">
+        <div>
+          <div class="max-w-[42rem] text-center sm:text-start">
+            <h1 class="text-[9vw] font-semibold leading-[1.1] tracking-tight sm:text-title mb-8">
+              Orchestrate your <span style="color: var(--color-accent);">AI workflows.</span>
+            </h1>
+            <p class="text-xl sm:text-3xl font-normal mb-6 max-w-xl text-pretty mx-auto sm:mx-0" style="color: #a1a1aa;">
+              Build reusable AI workflows that reduce repeated prompts, preserve context, and save tokens.
+            </p>
+          </div>
+
+          <div class="py-6 mt-4 flex items-center gap-6 flex-col sm:flex-row">
+            <a class="download-button button-primary text-xl py-4 px-6" href="#demo">
+              Try demo
+            </a>
+            <a class="text-accent text-lg hidden sm:block font-medium" href="#waitlist">
+              Join&nbsp;waitlist
+            </a>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+    </div>
 
     <!-- Workflow visual -->
     <section id="demo" style="padding: 0 0 5rem;">
@@ -162,7 +169,7 @@ import "../styles/global.css";
             </svg>
 
             <!-- AI Summary -->
-            <div class="wf-node" style="border-color: rgba(124, 92, 252, 0.3); color: var(--color-accent);">
+            <div class="wf-node" style="border-color: rgba(59, 130, 246, 0.3); color: var(--color-accent);">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
               </svg>
@@ -174,7 +181,7 @@ import "../styles/global.css";
             </svg>
 
             <!-- Obsidian -->
-            <div class="wf-node" style="border-color: rgba(124, 92, 252, 0.4); color: var(--color-accent); font-weight: 600;">
+            <div class="wf-node" style="border-color: rgba(59, 130, 246, 0.4); color: var(--color-accent); font-weight: 600;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18" />
               </svg>

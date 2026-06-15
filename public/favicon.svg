@@ -1,0 +1,73 @@
+<svg viewBox="180 180 660 750" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">StackMCP</title>
+  <desc id="desc">Three stacked isometric layers creating a layered stack effect.</desc>
+
+  <defs>
+    <!-- Bottom stack - #1A3A6A -->
+    <linearGradient id="bottomTop" x1="25%" y1="15%" x2="80%" y2="95%">
+      <stop offset="0%" stop-color="#2E528A"/>
+      <stop offset="100%" stop-color="#1A3A6A"/>
+    </linearGradient>
+    <linearGradient id="bottomLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A3A6A"/>
+      <stop offset="100%" stop-color="#0E2442"/>
+    </linearGradient>
+    <linearGradient id="bottomRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#142E52"/>
+      <stop offset="100%" stop-color="#081830"/>
+    </linearGradient>
+
+    <!-- Middle stack - #346BFF -->
+    <linearGradient id="midTop" x1="25%" y1="15%" x2="80%" y2="95%">
+      <stop offset="0%" stop-color="#5A8CFF"/>
+      <stop offset="100%" stop-color="#346BFF"/>
+    </linearGradient>
+    <linearGradient id="midLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7AA6FF"/>
+      <stop offset="100%" stop-color="#346BFF"/>
+    </linearGradient>
+    <linearGradient id="midRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#346BFF"/>
+      <stop offset="100%" stop-color="#2550CC"/>
+    </linearGradient>
+
+    <!-- Top stack - #6FAEFF -->
+    <linearGradient id="topTop" x1="25%" y1="15%" x2="80%" y2="95%">
+      <stop offset="0%" stop-color="#93C8FF"/>
+      <stop offset="100%" stop-color="#6FAEFF"/>
+    </linearGradient>
+    <linearGradient id="topLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B0DCFF"/>
+      <stop offset="100%" stop-color="#6FAEFF"/>
+    </linearGradient>
+    <linearGradient id="topRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6FAEFF"/>
+      <stop offset="100%" stop-color="#5290E0"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <!-- Bottom stack -->
+  <g transform="translate(512 680)" filter="url(#shadow)">
+    <polygon points="0,-100 220,0 0,100 -220,0" fill="url(#bottomTop)"/>
+    <polygon points="-220,0 0,100 0,170 -220,70" fill="url(#bottomLeft)"/>
+    <polygon points="220,0 0,100 0,170 220,70" fill="url(#bottomRight)"/>
+  </g>
+
+  <!-- Middle stack -->
+  <g transform="translate(512 520)" filter="url(#shadow)">
+    <polygon points="0,-100 220,0 0,100 -220,0" fill="url(#midTop)"/>
+    <polygon points="-220,0 0,100 0,170 -220,70" fill="url(#midLeft)"/>
+    <polygon points="220,0 0,100 0,170 220,70" fill="url(#midRight)"/>
+  </g>
+
+  <!-- Top stack -->
+  <g transform="translate(512 360)" filter="url(#shadow)">
+    <polygon points="0,-100 230,0 0,100 -230,0" fill="url(#topTop)"/>
+    <polygon points="-230,0 0,100 0,180 -230,80" fill="url(#topLeft)"/>
+    <polygon points="230,0 0,100 0,180 230,80" fill="url(#topRight)"/>
+  </g>
+</svg>
