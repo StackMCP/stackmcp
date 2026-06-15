@@ -1,13 +1,13 @@
 # StackMCP
 
-StackMCP is an open-source MCP (Model Context Protocol) server that connects AI assistants directly to your local development stack — tools, databases, APIs, and file systems — and orchestrates multi-step workflows through natural language.
+StackMCP is an open-source MCP (Model Context Protocol) server that connects AI assistants directly to your local development stack tools, databases, APIs, and file systems and orchestrates multi-step workflows through natural language.
 
 This repository is the public community hub. It contains:
 
-- **Documentation** — core concepts, architecture, and guides
-- **Workflow templates** — reusable JSON definitions for common automation patterns
-- **Examples** — step-by-step walkthroughs of real workflows
-- **Community resources** — contribution guides, roadmap, and security policies
+- **Documentation**: core concepts, architecture, and guides
+- **Workflow templates**: reusable JSON definitions for common automation patterns
+- **Examples**: step-by-step walkthroughs of real workflows
+- **Community resources**: contribution guides, roadmap, and security policies
 
 ## Repository structure
 
