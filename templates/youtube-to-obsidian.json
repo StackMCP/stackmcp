@@ -1,0 +1,58 @@
+{
+  "name": "youtube-to-obsidian",
+  "description": "Fetch YouTube video metadata and save a formatted note to Obsidian",
+  "version": "0.1.0",
+  "inputs": [
+    {
+      "name": "video_url",
+      "type": "string",
+      "description": "The YouTube video URL",
+      "required": true
+    },
+    {
+      "name": "vault_path",
+      "type": "string",
+      "description": "Path to the Obsidian vault",
+      "required": false
+    }
+  ],
+  "steps": [
+    {
+      "id": "fetch_metadata",
+      "tool": "youtube.get_video_metadata",
+      "params": {
+        "url": "${inputs.video_url}"
+      }
+    },
+    {
+      "id": "fetch_transcript",
+      "tool": "youtube.get_transcript",
+      "params": {
+        "url": "${inputs.video_url}"
+      }
+    },
+    {
+      "id": "format_note",
+      "tool": "core.format_template",
+      "params": {
+        "template": "---\ntitle: \"${steps.fetch_metadata.title}\"\nchannel: ${steps.fetch_metadata.channel}\nduration: ${steps.fetch_metadata.duration}\ndate: ${steps.fetch_metadata.published_at}\ntags:\n  - youtube\n  - notes\n---\n\n# ${steps.fetch_metadata.title}\n\n**Channel:** ${steps.fetch_metadata.channel}\n**Published:** ${steps.fetch_metadata.published_at}\n\n## Description\n\n${steps.fetch_metadata.description}\n\n## Transcript\n\n${steps.fetch_transcript.text}\n"
+      }
+    },
+    {
+      "id": "write_to_obsidian",
+      "tool": "obsidian.create_note",
+      "params": {
+        "vault": "${inputs.vault_path}",
+        "filename": "${steps.fetch_metadata.title}.md",
+        "content": "${steps.format_note.result}"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "note_path",
+      "value": "${steps.write_to_obsidian.path}",
+      "description": "Path to the created note"
+    }
+  ]
+}
