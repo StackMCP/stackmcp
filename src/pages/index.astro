@@ -18,39 +18,34 @@ import "../styles/global.css";
     />
   </head>
   <body>
-    <!-- Nav -->
-    <nav
-      style="
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.8rem 1.5rem;
-        max-width: var(--max-width);
-        margin: 0 auto;
-        background: rgba(12, 12, 12, 0.8);
-        backdrop-filter: blur(12px);
-      "
-    >
-      <span style="font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em;">
-        StackMCP
-      </span>
-      <a
-        href="#waitlist"
-        style="
-          background: var(--color-accent);
-          color: #fff;
-          padding: 0.35rem 0.9rem;
-          border-radius: var(--radius-sm);
-          font-weight: 500;
-          font-size: 0.8rem;
-        "
-      >
-        Waitlist
-      </a>
-    </nav>
+    <!-- Header -->
+    <header class="header">
+      <div class="container flex items-center">
+        <div class="flex items-center">
+          <a class="header-logo me-4" href="/">
+            <svg width="110" height="20" viewBox="0 0 143 25" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="18" fill="currentColor" font-family="Inter, sans-serif" font-weight="700" font-size="18">StackMCP</text>
+            </svg>
+          </a>
+        </div>
+        <div class="group w-full">
+          <ul class="text-sm hidden md:flex items-center">
+            <li><a class="nav-link" href="#how-it-works">How it works</a></li>
+            <li><a class="nav-link" href="#why">Why StackMCP</a></li>
+            <li class="flex-grow" aria-hidden="true"></li>
+            <li><a class="nav-link" href="https://github.com/StackMCP/stackmcp">GitHub</a></li>
+            <li><a class="btn-nav" href="#waitlist">Waitlist</a></li>
+          </ul>
+        </div>
+        <div class="ms-auto md:hidden z-10 flex items-center gap-4">
+          <a class="header-mobile-nav" href="#" aria-label="Open the navigation menu">
+            <div class="header-mobile-nav-button">
+              <div class="header-mobile-nav-button-inner"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </header>
 
     <!-- Hero -->
     <header style="padding: 6rem 0 4rem; text-align: center;">
