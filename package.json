@@ -1,0 +1,15 @@
+{
+  "name": "stackmcp",
+  "private": true,
+  "version": "0.1.0",
+  "description": "StackMCP public website — build and run MCP-powered workflows across your tools",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.7.0"
+  }
+}

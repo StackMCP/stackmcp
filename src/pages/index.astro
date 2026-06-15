@@ -1,0 +1,526 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StackMCP — MCP-Powered Workflow Stacks</title>
+    <meta
+      name="description"
+      content="Build and run MCP-powered workflows across your tools. Connect MCP servers, AI assistants, and services into reusable stacks."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        max-width: var(--max-width);
+        margin: 0 auto;
+      "
+    >
+      <span
+        style="
+          font-weight: 700;
+          font-size: 1.1rem;
+          letter-spacing: -0.02em;
+        "
+      >
+        StackMCP
+      </span>
+      <div style="display: flex; gap: 1.5rem; font-size: 0.875rem;">
+        <a href="#how-it-works">How it works</a>
+        <a href="#why">Why</a>
+        <a href="#waitlist">Waitlist</a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header
+      style="
+        padding: 6rem 0 4rem;
+        text-align: center;
+      "
+    >
+      <div class="container">
+        <h1
+          style="
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+          "
+        >
+          StackMCP
+        </h1>
+        <p
+          style="
+            font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+            color: var(--color-text);
+            max-width: 680px;
+            margin: 0 auto 0.75rem;
+          "
+        >
+          Build and run MCP-powered workflows across your tools.
+        </p>
+        <p
+          style="
+            font-size: 1.05rem;
+            color: var(--color-text-muted);
+            max-width: 560px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+          "
+        >
+          Connect MCP servers, AI tools, and external services into reusable
+          workflow stacks.
+        </p>
+        <a
+          href="#waitlist"
+          style="
+            display: inline-block;
+            background: var(--color-accent);
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            transition: background 0.15s;
+          "
+          onmouseover="this.style.background='var(--color-accent-hover)'"
+          onmouseout="this.style.background='var(--color-accent)'"
+        >
+          Join the waitlist &rarr;
+        </a>
+      </div>
+    </header>
+
+    <!-- How it works -->
+    <section id="how-it-works" class="section" style="background: var(--color-surface);">
+      <div class="container">
+        <span class="section-label">How it works</span>
+        <h2 class="section-title">
+          Define, run, and share workflow stacks.
+        </h2>
+        <p class="section-subtitle" style="margin-bottom: 3rem;">
+          StackMCP runs as a local daemon, connecting your tools through the
+          Model Context Protocol.
+        </p>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+          "
+        >
+          <div class="step-card">
+            <div
+              style="
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 8px;
+                background: var(--color-accent);
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+              "
+            >
+              1
+            </div>
+            <h3 style="font-weight: 600; margin-bottom: 0.5rem;">
+              Define your stack
+            </h3>
+            <p style="color: var(--color-text-muted); font-size: 0.925rem; line-height: 1.6;">
+              Compose tools, APIs, and data sources into a workflow stack.
+              Define it as a reusable JSON template.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div
+              style="
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 8px;
+                background: var(--color-accent);
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+              "
+            >
+              2
+            </div>
+            <h3 style="font-weight: 600; margin-bottom: 0.5rem;">
+              Run with AI
+            </h3>
+            <p style="color: var(--color-text-muted); font-size: 0.925rem; line-height: 1.6;">
+              Trigger workflows through an AI assistant or on a schedule. The
+              daemon manages connections and execution.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div
+              style="
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 8px;
+                background: var(--color-accent);
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+              "
+            >
+              3
+            </div>
+            <h3 style="font-weight: 600; margin-bottom: 0.5rem;">
+              Share as templates
+            </h3>
+            <p style="color: var(--color-text-muted); font-size: 0.925rem; line-height: 1.6;">
+              Export your stack as a shareable template. Browse community
+              workflows or publish your own.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example workflow -->
+    <section class="section">
+      <div class="container">
+        <span class="section-label">Example workflow</span>
+        <h2 class="section-title">
+          YouTube to Obsidian
+        </h2>
+        <p class="section-subtitle" style="margin-bottom: 2.5rem;">
+          A single prompt transforms a YouTube URL into a formatted Obsidian
+          note — no manual steps.
+        </p>
+
+        <div
+          style="
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              gap: 1rem;
+              font-size: 0.9rem;
+            "
+          >
+            <span
+              style="
+                background: rgba(108, 92, 231, 0.15);
+                color: var(--color-accent);
+                padding: 0.4rem 0.8rem;
+                border-radius: 6px;
+                font-family: var(--font-mono);
+                font-size: 0.8rem;
+              "
+            >
+              stack: youtube-to-obsidian
+            </span>
+            <span
+              style="
+                display: inline-flex;
+                align-items: center;
+                gap: 0.35rem;
+                color: var(--color-text-muted);
+              "
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              4 steps
+            </span>
+          </div>
+
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              gap: 0.75rem;
+              margin-top: 1.5rem;
+            "
+          >
+            <span class="pipeline-step">YouTube URL</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted)" stroke-width="2" style="flex-shrink: 0;">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+            <span class="pipeline-step">Fetch metadata</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted)" stroke-width="2" style="flex-shrink: 0;">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+            <span class="pipeline-step">AI summary</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted)" stroke-width="2" style="flex-shrink: 0;">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+            <span class="pipeline-step">Obsidian note</span>
+          </div>
+        </div>
+
+        <p
+          style="
+            margin-top: 1.5rem;
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+          "
+        >
+          See the
+          <a href="/examples/youtube-to-obsidian.md">full example walkthrough</a>
+          and
+          <a href="/templates/youtube-to-obsidian.json">workflow template</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Why StackMCP -->
+    <section id="why" class="section" style="background: var(--color-surface);">
+      <div class="container">
+        <span class="section-label">Why StackMCP</span>
+        <h2 class="section-title">
+          Your tools, connected through MCP.
+        </h2>
+        <p class="section-subtitle" style="margin-bottom: 3rem;">
+          Built for developers who want AI to work where their data already
+          lives.
+        </p>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+          "
+        >
+          <div
+            style="
+              background: var(--color-bg);
+              border: 1px solid var(--color-border);
+              border-radius: 10px;
+              padding: 1.5rem;
+            "
+          >
+            <h3 style="font-weight: 600; margin-bottom: 0.5rem;">
+              Local-first
+            </h3>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6;">
+              Everything runs on your machine. No cloud proxy, no data leaving
+              your environment unless you explicitly route it.
+            </p>
+          </div>
+
+          <div
+            style="
+              background: var(--color-bg);
+              border: 1px solid var(--color-border);
+              border-radius: 10px;
+              padding: 1.5rem;
+            "
+          >
+            <h3 style="font-weight: 600; margin-bottom: 0.5rem;">
+              AI-native
+            </h3>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6;">
+              Built on the Model Context Protocol. Works with any MCP-compatible
+              AI assistant — Claude, and others.
+            </p>
+          </div>
+
+          <div
+            style="
+              background: var(--color-bg);
+              border: 1px solid var(--color-border);
+              border-radius: 10px;
+              padding: 1.5rem;
+            "
+          >
+            <h3 style="font-weight: 600; margin-bottom: 0.5rem;">
+              Reusable stacks
+            </h3>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6;">
+              Workflows are defined as portable JSON templates. Share them,
+              version them, and build on top of existing stacks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Waitlist -->
+    <section id="waitlist" class="section">
+      <div class="container" style="text-align: center;">
+        <span class="section-label">Stay updated</span>
+        <h2 class="section-title" style="max-width: 500px; margin: 0 auto 0.75rem;">
+          Join the waitlist
+        </h2>
+        <p
+          style="
+            color: var(--color-text-muted);
+            max-width: 450px;
+            margin: 0 auto 2rem;
+            font-size: 1rem;
+          "
+        >
+          StackMCP is in active development. Sign up to hear about releases,
+          early access, and community updates.
+        </p>
+
+        <form
+          style="
+            display: flex;
+            gap: 0.75rem;
+            max-width: 440px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+          onsubmit="event.preventDefault(); alert('Waitlist coming soon — thanks for your interest!');"
+        >
+          <input
+            type="email"
+            placeholder="you@example.com"
+            required
+            style="
+              flex: 1;
+              min-width: 200px;
+              padding: 0.75rem 1rem;
+              border: 1px solid var(--color-border);
+              border-radius: 8px;
+              background: var(--color-surface);
+              color: var(--color-text);
+              font-size: 0.95rem;
+              font-family: inherit;
+              outline: none;
+            "
+            onfocus="this.style.borderColor='var(--color-accent)'"
+            onblur="this.style.borderColor='var(--color-border)'"
+          />
+          <button
+            type="submit"
+            style="
+              background: var(--color-accent);
+              color: #fff;
+              border: none;
+              padding: 0.75rem 1.5rem;
+              border-radius: 8px;
+              font-weight: 600;
+              font-size: 0.95rem;
+              font-family: inherit;
+              cursor: pointer;
+              transition: background 0.15s;
+            "
+            onmouseover="this.style.background='var(--color-accent-hover)'"
+            onmouseout="this.style.background='var(--color-accent)'"
+          >
+            Join
+          </button>
+        </form>
+
+        <p
+          style="
+            margin-top: 1.5rem;
+            color: var(--color-text-muted);
+            font-size: 0.8rem;
+          "
+        >
+          No spam, just project updates. Unsubscribe anytime.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      style="
+        border-top: 1px solid var(--color-border);
+        padding: 2rem 0;
+        margin-top: 2rem;
+      "
+    >
+      <div
+        class="container"
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+          font-size: 0.85rem;
+          color: var(--color-text-muted);
+        "
+      >
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <a href="https://github.com/sdnssr/stackmcp">GitHub</a>
+          <a href="/ROADMAP.md">Roadmap</a>
+          <a href="/CONTRIBUTING.md">Contributing</a>
+        </div>
+
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <span>StackMCP is in early development.</span>
+        </div>
+      </div>
+    </footer>
+
+    <style is:global>
+      .step-card {
+        background: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-radius: 10px;
+        padding: 1.75rem;
+        transition: border-color 0.15s;
+      }
+      .step-card:hover {
+        border-color: var(--color-accent);
+      }
+      .pipeline-step {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+      @media (max-width: 640px) {
+        .pipeline-step {
+          font-size: 0.8rem;
+          padding: 0.45rem 0.75rem;
+        }
+      }
+    </style>
+  </body>
+</html>
