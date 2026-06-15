@@ -7,18 +7,23 @@
 }
 
 :root {
-  --color-bg: #0b0d11;
-  --color-surface: #121418;
-  --color-border: #1e2028;
-  --color-text: #e4e5ea;
-  --color-text-muted: #80828d;
-  --color-accent: #6c5ce7;
-  --color-accent-hover: #7f6ff0;
+  --color-bg: #0c0c0c;
+  --color-surface: #141416;
+  --color-surface-hover: #1a1a1e;
+  --color-border: #1e1e22;
+  --color-text: #e8e8ed;
+  --color-text-muted: #73737d;
+  --color-text-dim: #52525b;
+  --color-accent: #7c5cfc;
+  --color-accent-hover: #8f72ff;
   --color-green: #00cec9;
-  --max-width: 1024px;
+  --max-width: 1000px;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
 }
 
 html {
@@ -34,14 +39,19 @@ body {
   min-height: 100dvh;
 }
 
+::selection {
+  background: rgba(124, 92, 252, 0.3);
+  color: #fff;
+}
+
 a {
-  color: var(--color-accent);
+  color: var(--color-text);
   text-decoration: none;
   transition: color 0.15s;
 }
 
 a:hover {
-  color: var(--color-accent-hover);
+  color: var(--color-accent);
 }
 
 img,
@@ -58,37 +68,64 @@ svg {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: 6rem 0;
 }
 
 .section-label {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--color-accent);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
 }
 
 .section-subtitle {
   font-size: 1.05rem;
   color: var(--color-text-muted);
-  max-width: 600px;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* Card base */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.card:hover {
+  border-color: rgba(124, 92, 252, 0.3);
+  background: var(--color-surface-hover);
+}
+
+/* Utility: subtle dividing line */
+hr.divider {
+  border: none;
+  height: 1px;
+  background: var(--color-border);
+  margin: 6rem 0;
 }
 
 @media (max-width: 640px) {
   .section {
-    padding: 3rem 0;
+    padding: 3.5rem 0;
   }
   .section-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+  }
+  hr.divider {
+    margin: 3.5rem 0;
   }
 }
