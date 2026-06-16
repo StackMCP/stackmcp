@@ -131,102 +131,251 @@ import "../styles/global.css";
     <!-- Stack Builder visual -->
     <section id="demo" style="padding: 0 0 5rem;">
       <div class="container">
-        <div class="canvas-container">
-          <!-- Dot grid background -->
-          <svg class="canvas-bg" aria-hidden="true">
-            <defs>
-              <pattern id="canvas-dots" x="8" y="8" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="1" cy="1" r="0.8" fill="rgba(62, 85, 113, 0.12)"></circle>
-              </pattern>
-            </defs>
-            <rect x="0" y="0" width="100%" height="100%" fill="url(#canvas-dots)"></rect>
-          </svg>
-
-          <!-- Edge paths -->
-          <svg class="canvas-edges" aria-hidden="true">
-            <defs>
-              <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(100, 120, 160, 0.4)"/>
-              </marker>
-            </defs>
-            <!-- YouTube → Transcript -->
-            <path d="M 176 44 C 242 44, 242 118, 308 118" fill="none" stroke="rgba(100, 120, 160, 0.35)" stroke-width="2" marker-end="url(#arrow)"/>
-            <!-- Transcript → AI Summary -->
-            <path d="M 468 118 C 534 118, 534 44, 600 44" fill="none" stroke="rgba(100, 120, 160, 0.35)" stroke-width="2" marker-end="url(#arrow)"/>
-            <!-- AI Summary → Obsidian -->
-            <path d="M 760 44 C 826 44, 826 118, 892 118" fill="none" stroke="rgba(100, 120, 160, 0.35)" stroke-width="2" marker-end="url(#arrow)"/>
-          </svg>
-
-          <!-- Node: YouTube -->
-          <div class="canvas-node" style="top: 16px; left: 16px;">
-            <div class="canvas-node-header" style="color: #ff4545;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="#ff4545">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-              </svg>
-              YouTube
+        <div class="builder-frame">
+          <!-- Sidebar -->
+          <div class="builder-sidebar">
+            <div class="sidebar-header">Tools</div>
+            <div class="sidebar-search">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7.5"/><line x1="16" y1="16" x2="21" y2="21"/></svg>
+              Search tools...
             </div>
-            <div class="canvas-node-body">
-              <div class="canvas-node-field">
-                <span class="canvas-node-field-label">url</span>
-                <span class="canvas-node-field-value">https://youtube.com/watch?v=...</span>
+            <div class="sidebar-section-label">Installed</div>
+            <div class="sidebar-tool-group expanded">
+              <div class="sidebar-server">
+                <svg class="sidebar-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                <span class="sidebar-server-icon" style="color:#ff4545;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </span>
+                <span>YouTube</span>
+              </div>
+              <div class="sidebar-tools-sub">
+                <div class="sidebar-tool-item active">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="12" cy="12" r="10"/></svg>
+                  get_transcript
+                </div>
+                <div class="sidebar-tool-item">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="12" cy="12" r="10"/></svg>
+                  search_videos
+                </div>
+              </div>
+            </div>
+            <div class="sidebar-tool-group">
+              <div class="sidebar-server">
+                <svg class="sidebar-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="sidebar-server-icon" style="color:#7c5cfc;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></svg>
+                </span>
+                <span>Transcript</span>
+              </div>
+            </div>
+            <div class="sidebar-tool-group expanded">
+              <div class="sidebar-server">
+                <svg class="sidebar-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                <span class="sidebar-server-icon" style="color:var(--color-accent);">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+                </span>
+                <span>AI Summary</span>
+              </div>
+              <div class="sidebar-tools-sub">
+                <div class="sidebar-tool-item active">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="12" cy="12" r="10"/></svg>
+                  summarize
+                </div>
+              </div>
+            </div>
+            <div class="sidebar-tool-group">
+              <div class="sidebar-server">
+                <svg class="sidebar-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="sidebar-server-icon" style="color:#f59e0b;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9" /><path d="M4 4a16 16 0 0 1 16 16" /><circle cx="5" cy="19" r="1"/></svg>
+                </span>
+                <span>RSS</span>
+              </div>
+            </div>
+            <div class="sidebar-tool-group expanded">
+              <div class="sidebar-server">
+                <svg class="sidebar-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                <span class="sidebar-server-icon" style="color:var(--color-accent);">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18" /></svg>
+                </span>
+                <span>Obsidian</span>
+              </div>
+              <div class="sidebar-tools-sub">
+                <div class="sidebar-tool-item active">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="12" cy="12" r="10"/></svg>
+                  write_note
+                </div>
+              </div>
+            </div>
+            <div class="sidebar-tool-group">
+              <div class="sidebar-server">
+                <svg class="sidebar-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span class="sidebar-server-icon" style="color:#34d399;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M22 8H2"/></svg>
+                </span>
+                <span>Gmail</span>
               </div>
             </div>
           </div>
 
-          <!-- Node: Transcript -->
-          <div class="canvas-node" style="top: 90px; left: 308px;">
-            <div class="canvas-node-header">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" />
-              </svg>
-              Transcript
+          <!-- Canvas -->
+          <div class="canvas-container">
+            <!-- Dot grid background -->
+            <svg class="canvas-bg" viewBox="0 0 440 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <pattern id="canvas-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <circle cx="1" cy="1" r="0.8" fill="rgba(62, 85, 113, 0.12)"></circle>
+                </pattern>
+              </defs>
+              <rect x="0" y="0" width="440" height="380" fill="url(#canvas-dots)"></rect>
+            </svg>
+
+            <!-- Edge paths -->
+            <svg class="canvas-edges" viewBox="0 0 440 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(100, 140, 200, 0.5)"/>
+                </marker>
+              </defs>
+              <path d="M 220 100 L 220 158" fill="none" stroke="rgba(100, 140, 200, 0.5)" stroke-width="2.5" marker-end="url(#arrow)"/>
+              <path d="M 220 220 L 220 278" fill="none" stroke="rgba(100, 140, 200, 0.5)" stroke-width="2.5" marker-end="url(#arrow)"/>
+            </svg>
+
+            <!-- Node: YouTube -->
+            <div class="canvas-node" style="top: 40px; left: 140px;">
+              <div class="canvas-node-header" style="color: #ff4545;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#ff4545"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                YouTube
+              </div>
+              <div class="canvas-node-body">
+                <div class="canvas-node-field">
+                  <span class="canvas-node-field-label">action</span>
+                  <span class="canvas-node-field-value">fetch transcript</span>
+                </div>
+              </div>
             </div>
-            <div class="canvas-node-body">
-              <div class="canvas-node-field">
-                <span class="canvas-node-field-label">language</span>
-                <span class="canvas-node-field-value">en</span>
+
+            <!-- Node: AI Summary -->
+            <div class="canvas-node" style="top: 160px; left: 140px;">
+              <div class="canvas-node-header" style="color: var(--color-accent);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+                AI Summary
+              </div>
+              <div class="canvas-node-body">
+                <div class="canvas-node-field">
+                  <span class="canvas-node-field-label">prompt</span>
+                  <span class="canvas-node-field-value">summarize this transcript</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Node: Obsidian -->
+            <div class="canvas-node" style="top: 280px; left: 140px;">
+              <div class="canvas-node-header" style="color: var(--color-accent);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18" /></svg>
+                Obsidian Note
+              </div>
+              <div class="canvas-node-body">
+                <div class="canvas-node-field">
+                  <span class="canvas-node-field-label">target</span>
+                  <span class="canvas-node-field-value">Everything/Web/</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Inspector -->
+          <aside class="builder-inspector">
+            <div class="inspector-head">
+              <div class="inspector-node-info">
+                <div class="inspector-logo-placeholder"></div>
+                <div>
+                  <span class="inspector-step-label">Select a step</span>
+                  <strong class="inspector-tool-name">No node selected</strong>
+                  <p class="inspector-action-name">Click a node to configure</p>
+                </div>
+              </div>
+            </div>
+            <nav class="inspector-tabs">
+              <span class="inspector-tab active">Configure</span>
+              <span class="inspector-tab">Input / Output</span>
+              <span class="inspector-tab">Test</span>
+            </nav>
+            <div class="inspector-body">
+              <div class="inspector-tab-panel active">
+                <p class="inspector-empty">Select a node to see its configuration</p>
+                <div class="inspector-section">
+                  <div class="inspector-collapse-head">
+                    <h3>Output (Preview)</h3>
+                    <span class="inspector-collapse-icon">▼</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <div class="builder-bottom-dock" style="position: relative; overflow: hidden;">
+            <svg class="dock-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;" aria-hidden="true">
+              <rect fill="url(#canvas-dots)" width="100%" height="100%"/>
+            </svg>
+            <nav class="dock-tabs" style="position: relative; z-index: 1;">
+              <button class="dock-tab active">Stack Properties</button>
+              <button class="dock-tab">Input Schema</button>
+              <button class="dock-tab">Output Schema</button>
+              <button class="dock-tab">Variables</button>
+              <button class="dock-tab">Notes</button>
+              <button class="dock-tab">Execution Preview</button>
+            </nav>
+            <div class="dock-body">
+              <div class="dock-panel active">
+                <div class="dock-props">
+                  <div class="dock-stat">
+                    <span class="dock-stat-value">youtube-to-obsidian</span>
+                    <span class="dock-stat-label">Name</span>
+                  </div>
+                  <div class="dock-stat">
+                    <span class="dock-stat-value">3</span>
+                    <span class="dock-stat-label">Steps</span>
+                  </div>
+                  <div class="dock-stat">
+                    <span class="dock-stat-value">~1 min</span>
+                    <span class="dock-stat-label">Est. duration</span>
+                  </div>
+                </div>
+                <div class="dock-settings">
+                  <h4 class="dock-settings-title">Settings</h4>
+                  <div class="dock-setting">
+                    <div>
+                      <strong>Stop on Error</strong>
+                      <small>Stop execution if any step fails</small>
+                    </div>
+                    <span class="dock-toggle on">On</span>
+                  </div>
+                  <div class="dock-setting">
+                    <div>
+                      <strong>Retry Failed Steps</strong>
+                      <small>Retry failed steps up to 3 times</small>
+                    </div>
+                    <span class="dock-toggle on">On</span>
+                  </div>
+                  <div class="dock-setting">
+                    <div>
+                      <strong>Timeout</strong>
+                      <small>Set a timeout for each step</small>
+                    </div>
+                    <span class="dock-chip">3 mins</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- Node: AI Summary -->
-          <div class="canvas-node" style="top: 16px; left: 600px;">
-            <div class="canvas-node-header" style="color: var(--color-accent);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
-              </svg>
-              AI Summary
-            </div>
-            <div class="canvas-node-body">
-              <div class="canvas-node-field">
-                <span class="canvas-node-field-label">prompt</span>
-                <span class="canvas-node-field-value">summarize this transcript</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Node: Obsidian -->
-          <div class="canvas-node" style="top: 90px; left: 892px;">
-            <div class="canvas-node-header" style="color: var(--color-accent);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18" />
-              </svg>
-              Obsidian Note
-            </div>
-            <div class="canvas-node-body">
-              <div class="canvas-node-field">
-                <span class="canvas-node-field-label">target</span>
-                <span class="canvas-node-field-value">Everything/Web/</span>
-              </div>
-            </div>
-          </div>
-
         </div>
 
         <div class="canvas-caption-wrapper">
           <div class="canvas-caption-badge">stackmcp run youtube-to-obsidian</div>
           <p class="canvas-caption-text">
-            A premade stack — tools connected in the Stack Builder, ready to run from the CLI.
+            A premade stack in the Stack Builder — drag, connect, configure tools.
             <a href="#install" style="color: var(--color-accent);">Install</a> and try it in seconds.
           </p>
         </div>
@@ -399,21 +548,256 @@ $ stackmcp run youtube-to-obsidian \
     </footer>
 
     <style is:global>
-      .canvas-container {
-        position: relative;
-        width: 100%;
-        max-width: 1060px;
+      .builder-frame {
+        display: grid;
+        grid-template-columns: 180px 1fr 240px;
+        grid-template-rows: auto auto;
+        max-width: 860px;
         margin: 0 auto;
-        height: 180px;
-        background: #13131b;
         border: 1px solid var(--color-border);
         border-radius: var(--radius-lg);
         overflow: hidden;
       }
 
+      .builder-inspector {
+        grid-column: 3;
+        grid-row: 1 / -1;
+        background: #111118;
+        border-left: 1px solid var(--color-border);
+        display: flex;
+        flex-direction: column;
+        font-size: 0.78rem;
+        overflow-y: auto;
+      }
+
+      .inspector-head {
+        padding: 0.65rem 0.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .inspector-node-info {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+
+      .inspector-logo-placeholder {
+        width: 32px;
+        height: 32px;
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.06);
+        flex-shrink: 0;
+      }
+
+      .inspector-step-label {
+        display: block;
+        font-size: 0.6rem;
+        color: var(--color-text-dim);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .inspector-tool-name {
+        display: block;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--color-text);
+      }
+
+      .inspector-action-name {
+        font-size: 0.7rem;
+        color: var(--color-text-dim);
+        margin-top: 0.1rem;
+      }
+
+      .inspector-tabs {
+        display: flex;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .inspector-tab {
+        flex: 1;
+        text-align: center;
+        padding: 0.4rem 0.3rem;
+        font-size: 0.68rem;
+        font-weight: 500;
+        color: var(--color-text-dim);
+        border-bottom: 2px solid transparent;
+        cursor: default;
+      }
+
+      .inspector-tab.active {
+        color: var(--color-accent);
+        border-bottom-color: var(--color-accent);
+      }
+
+      .inspector-body {
+        flex: 1;
+        padding: 0.75rem;
+        overflow-y: auto;
+      }
+
+      .inspector-tab-panel {
+        display: none;
+      }
+
+      .inspector-tab-panel.active {
+        display: block;
+      }
+
+      .inspector-empty {
+        font-size: 0.72rem;
+        color: #5a7394;
+        text-align: center;
+        padding: 1.25rem 0;
+      }
+
+      .inspector-section {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 0.5rem;
+      }
+
+      .inspector-collapse-head {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        cursor: default;
+      }
+
+      .inspector-collapse-head h3 {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--color-text-muted);
+      }
+
+      .inspector-collapse-icon {
+        font-size: 0.6rem;
+        color: var(--color-text-dim);
+      }
+
+      .builder-sidebar {
+        grid-column: 1;
+        grid-row: 1 / -1;
+        background: #111118;
+        border-right: 1px solid var(--color-border);
+        padding: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        font-size: 0.78rem;
+        overflow-y: auto;
+      }
+
+      .sidebar-header {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--color-text-dim);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 0.25rem 0.4rem 0.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 0.25rem;
+      }
+
+      .sidebar-search {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 0.5rem;
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius-sm);
+        font-size: 0.7rem;
+        color: var(--color-text-dim);
+        margin-bottom: 0.25rem;
+      }
+
+      .sidebar-section-label {
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: var(--color-text-dim);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.3rem 0.4rem;
+      }
+
+      .sidebar-tool-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .sidebar-server {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.35rem 0.4rem;
+        border-radius: var(--radius-sm);
+        color: var(--color-text-muted);
+        cursor: default;
+        font-size: 0.78rem;
+        transition: background 0.1s;
+      }
+
+      .sidebar-server:hover {
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .sidebar-chevron {
+        flex-shrink: 0;
+        color: var(--color-text-dim);
+      }
+
+      .sidebar-tool-group.expanded .sidebar-chevron {
+        color: var(--color-text-muted);
+      }
+
+      .sidebar-server-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        flex-shrink: 0;
+      }
+
+      .sidebar-tools-sub {
+        display: none;
+        padding-left: 1.5rem;
+        padding-bottom: 0.25rem;
+      }
+
+      .sidebar-tool-group.expanded .sidebar-tools-sub {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .sidebar-tool-item {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.2rem 0.4rem;
+        font-size: 0.7rem;
+        color: var(--color-text-dim);
+        border-radius: var(--radius-sm);
+      }
+
+      .sidebar-tool-item.active {
+        color: var(--color-text);
+        background: rgba(59, 130, 246, 0.08);
+      }
+
+      .canvas-container {
+        grid-column: 2;
+        position: relative;
+        width: 440px;
+        height: 380px;
+        background: #13131b;
+        overflow: hidden;
+      }
+
       .canvas-bg {
         position: absolute;
-        inset: 0;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         pointer-events: none;
@@ -421,7 +805,8 @@ $ stackmcp run youtube-to-obsidian \
 
       .canvas-edges {
         position: absolute;
-        inset: 0;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         pointer-events: none;
@@ -507,23 +892,186 @@ $ stackmcp run youtube-to-obsidian \
         line-height: 1.6;
       }
 
-      @media (max-width: 1100px) {
-        .canvas-container {
-          max-width: 100%;
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch;
-        }
-        .canvas-container > * {
-          min-width: 1060px;
-        }
+      /* ── Bottom Dock ───────────────────────────── */
+      .builder-bottom-dock {
+        grid-column: 2;
+        border-top: 1px solid var(--color-border);
+        background: #111118;
+        width: 100%;
+      }
+
+      .dock-tabs {
+        display: flex;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        overflow-x: auto;
+      }
+
+      .dock-tab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.35rem;
+        padding: 0.5rem 0.3rem;
+        font-size: 0.68rem;
+        font-weight: 500;
+        font-family: var(--font-sans);
+        color: var(--color-text-dim);
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        cursor: default;
+        white-space: nowrap;
+        flex: 1;
+        min-width: 0;
+        transition: color 0.1s, border-color 0.1s;
+      }
+
+      .dock-tab.active {
+        color: var(--color-accent);
+        border-bottom-color: var(--color-accent);
+      }
+
+      .dock-body {
+        padding: 0.75rem 0.85rem;
+      }
+
+      .dock-panel {
+        display: none;
+      }
+
+      .dock-panel.active {
+        display: block;
+      }
+
+      .dock-props {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .dock-props .dock-stat {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+      }
+
+      .dock-stat-value {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--color-text);
+      }
+
+      .dock-stat-label {
+        font-size: 0.6rem;
+        color: var(--color-text-dim);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .dock-settings-title {
+        font-size: 0.65rem;
+        font-weight: 600;
+        color: var(--color-text-dim);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.4rem;
+      }
+
+      .dock-setting {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.35rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      }
+
+      .dock-setting strong {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--color-text-muted);
+      }
+
+      .dock-setting small {
+        display: block;
+        font-size: 0.65rem;
+        color: var(--color-text-dim);
+        margin-top: 0.05rem;
+      }
+
+      .dock-toggle {
+        font-size: 0.65rem;
+        font-weight: 600;
+        padding: 0.15rem 0.5rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--color-text-dim);
+        text-transform: uppercase;
+      }
+
+      .dock-toggle.on {
+        background: rgba(59, 130, 246, 0.15);
+        color: var(--color-accent);
+      }
+
+      .dock-chip {
+        font-size: 0.7rem;
+        padding: 0.15rem 0.5rem;
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--color-text-muted);
       }
 
       @media (max-width: 640px) {
+        .builder-frame {
+          grid-template-columns: 1fr;
+          max-width: 440px;
+        }
+        .builder-sidebar {
+          grid-row: auto;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 0.15rem;
+          padding: 0.5rem;
+          border-right: none;
+          border-bottom: 1px solid var(--color-border);
+        }
+        .sidebar-header,
+        .sidebar-search,
+        .sidebar-section-label {
+          display: none;
+        }
+        .sidebar-tool-group.expanded .sidebar-tools-sub {
+          display: none;
+        }
+        .sidebar-server {
+          padding: 0.15rem 0.35rem;
+          font-size: 0.7rem;
+        }
+        .sidebar-chevron {
+          display: none;
+        }
         .canvas-container {
-          height: 180px;
+          grid-column: 1;
+          width: 100%;
+          height: 340px;
         }
         .canvas-node {
           width: 140px;
+          left: calc(50% - 70px) !important;
+        }
+        .canvas-caption-text {
+          font-size: 0.8rem;
+        }
+        .builder-bottom-dock {
+          grid-column: 1;
+        }
+        .builder-inspector {
+          grid-row: auto;
+          border-left: none;
+          border-top: 1px solid var(--color-border);
         }
       }
 
