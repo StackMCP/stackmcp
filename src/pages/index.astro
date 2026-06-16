@@ -10,7 +10,7 @@ import "../styles/global.css";
     <title>StackMCP — MCP-powered workflow stacks</title>
     <meta
       name="description"
-      content="Connect GitHub, Obsidian, YouTube, Gmail, RSS, Discord, and MCP servers into reusable workflow stacks."
+      content="The execution layer for MCP workflows. Install once, run from anywhere."
     />
     <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
@@ -78,14 +78,10 @@ import "../styles/global.css";
         </div>
         <div class="group w-full">
           <ul class="text-sm hidden md:flex items-center">
-            <li><a class="nav-link" href="https://github.com/StackMCP/stackmcp/releases">Download</a></li>
-            <li><a class="nav-link" href="#waitlist">Pricing</a></li>
-            <li><a class="nav-link" href="/docs/daemon-model.md">Sync</a></li>
-            <li><a class="nav-link" href="/workflows/README.md">Publish</a></li>
-            <li><a class="nav-link" href="#waitlist">Enterprise</a></li>
+            <li><a class="nav-link" href="#install">Install</a></li>
+            <li><a class="nav-link" href="/docs/daemon-model.md">Docs</a></li>
             <li class="flex-grow" aria-hidden="true"></li>
-            <li><a class="nav-link" href="https://github.com/StackMCP/stackmcp">Community</a></li>
-            <li><a class="nav-link" href="#waitlist">Account</a></li>
+            <li><a class="nav-link" href="https://github.com/StackMCP/stackmcp">GitHub</a></li>
           </ul>
         </div>
         <div class="ms-auto md:hidden z-10 flex items-center gap-4">
@@ -111,17 +107,25 @@ import "../styles/global.css";
             </p>
           </div>
 
-          <div class="py-6 mt-4 flex items-center gap-6 flex-col sm:flex-row">
-            <a class="download-button button-primary text-xl py-4 px-6" href="#demo">
-              Try demo
-            </a>
-            <a class="text-accent text-lg hidden sm:block font-medium" href="#waitlist">
-              Join&nbsp;waitlist
-            </a>
+          <div class="py-6 mt-4">
+            <div class="install-box" id="install">
+              <div class="install-box-header">
+                <span class="install-box-dot" style="background: #ef4444;"></span>
+                <span class="install-box-dot" style="background: #f59e0b;"></span>
+                <span class="install-box-dot" style="background: #22c55e;"></span>
+                <span class="install-box-label">Install</span>
+              </div>
+              <div class="install-box-body">
+                <code class="install-box-command">npm install -g stackmcp</code>
+                <button class="install-box-copy" onclick="navigator.clipboard.writeText('npm install -g stackmcp')" aria-label="Copy install command">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  Copy
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </header>
-
     </div>
 
     <!-- Workflow visual -->
@@ -233,8 +237,8 @@ import "../styles/global.css";
               Run
             </h3>
             <p style="color: var(--color-text-muted); font-size: 0.82rem; line-height: 1.7;">
-              Trigger stacks through an AI assistant or on a schedule. The
-              daemon handles connections.
+              Trigger stacks from your terminal or AI assistant. The daemon
+              handles all MCP server connections.
             </p>
           </div>
 
@@ -299,81 +303,47 @@ import "../styles/global.css";
       </div>
     </section>
 
-    <!-- Waitlist -->
-    <section id="waitlist" class="section" style="background: var(--color-surface);">
-      <div class="container" style="max-width: 400px; text-align: center;">
-        <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">
-          Get early access
+    <!-- Quick Start -->
+    <section class="section" style="background: var(--color-surface);">
+      <div class="container" style="max-width: 600px; text-align: center;">
+        <h2 class="section-title" style="margin-bottom: 0.75rem;">
+          Get started in seconds
         </h2>
         <p
           style="
             color: var(--color-text-muted);
             font-size: 0.9rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             line-height: 1.7;
           "
         >
-          StackMCP is in active development. Sign up for release and early
-          access updates.
+          Install globally, configure your MCP servers, and run your first stack.
         </p>
 
-        <form id="waitlist-form"
-          style="
-            display: flex;
-            gap: 0.5rem;
-          "
-        >
-          <input
-            type="email"
-            placeholder="you@example.com"
-            required
-            style="
-              flex: 1;
-              padding: 0.65rem 1rem;
-              border: 1px solid var(--color-border);
-              border-radius: var(--radius-sm);
-              background: var(--color-bg);
-              color: var(--color-text);
-              font-size: 0.85rem;
-              font-family: inherit;
-              outline: none;
-              transition: border-color 0.15s;
-            "
-            onfocus="this.style.borderColor='var(--color-accent)'"
-            onblur="this.style.borderColor='var(--color-border)'"
-          />
-          <button
-            type="submit"
-            style="
-              background: var(--color-accent);
-              color: #fff;
-              border: none;
-              padding: 0.65rem 1.25rem;
-              border-radius: var(--radius-sm);
-              font-weight: 600;
-              font-size: 0.85rem;
-              font-family: inherit;
-              cursor: pointer;
-              white-space: nowrap;
-              transition: background 0.15s;
-            "
-            onmouseover="this.style.background='var(--color-accent-hover)'"
-            onmouseout="this.style.background='var(--color-accent)'"
-          >
-            Join
-          </button>
-        </form>
+        <div class="terminal-box">
+          <div class="install-box-header">
+            <span class="install-box-dot" style="background: #ef4444;"></span>
+            <span class="install-box-dot" style="background: #f59e0b;"></span>
+            <span class="install-box-dot" style="background: #22c55e;"></span>
+            <span class="install-box-label" style="color: var(--color-text-muted);">Terminal</span>
+          </div>
+          <div class="terminal-body">
+            <pre class="terminal-pre">$ stackmcp init
+? Enable the Obsidian MCP server? Yes
+? Enable the YouTube MCP server? Yes
+✓ Servers configured
+
+$ stackmcp stacks
+  youtube-to-obsidian  Fetch transcript, summarize, save to vault
+  ...
+
+$ stackmcp run youtube-to-obsidian \
+    --url "https://youtube.com/watch?v=..."
+✓ Stack complete — note saved to Obsidian</pre>
+          </div>
+        </div>
       </div>
     </section>
-
-    <script>
-      document
-        .getElementById("waitlist-form")
-        ?.addEventListener("submit", (e) => {
-          e.preventDefault();
-          alert("Waitlist coming soon — thanks for your interest!");
-        });
-    </script>
 
     <!-- Footer -->
     <footer
@@ -398,7 +368,7 @@ import "../styles/global.css";
           <a href="/ROADMAP.md" style="color: var(--color-text-dim);">Roadmap</a>
           <a href="/CONTRIBUTING.md" style="color: var(--color-text-dim);">Contributing</a>
         </div>
-        <span>Early development</span>
+        <span>npm install -g stackmcp</span>
       </div>
     </footer>
 
@@ -415,6 +385,97 @@ import "../styles/global.css";
         font-weight: 500;
         min-width: 140px;
         justify-content: center;
+      }
+
+      .install-box {
+        max-width: 500px;
+        background: #1a1a2e;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        font-family: var(--font-mono);
+      }
+
+      .install-box-header {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.5rem 0.75rem;
+        background: rgba(255, 255, 255, 0.04);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .install-box-dot {
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 50%;
+      }
+
+      .install-box-label {
+        margin-left: 0.5rem;
+        font-size: 0.7rem;
+        color: var(--color-text-dim);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .install-box-body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.9rem 1rem;
+      }
+
+      .install-box-command {
+        font-size: 0.9rem;
+        color: #e8e8ed;
+        white-space: nowrap;
+      }
+
+      .install-box-copy {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.75rem;
+        font-family: var(--font-sans);
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--color-text-muted);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s;
+        white-space: nowrap;
+      }
+
+      .install-box-copy:hover {
+        background: var(--color-accent);
+        color: #fff;
+        border-color: var(--color-accent);
+      }
+
+      .install-box-copy:active {
+        opacity: 0.8;
+      }
+
+      .terminal-box {
+        max-width: 560px;
+        margin: 0 auto;
+        background: #1a1a2e;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        font-family: var(--font-mono);
+        text-align: left;
+      }
+
+      .terminal-pre {
+        font-size: 0.78rem;
+        line-height: 1.7;
+        color: #c4c4d0;
+        padding: 1rem 1.25rem;
+        white-space: pre-wrap;
+        font-family: var(--font-mono);
       }
     </style>
   </body>
