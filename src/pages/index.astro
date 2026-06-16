@@ -128,80 +128,106 @@ import "../styles/global.css";
       </header>
     </div>
 
-    <!-- Workflow visual -->
+    <!-- Stack Builder visual -->
     <section id="demo" style="padding: 0 0 5rem;">
-      <div class="container" style="max-width: 600px;">
-        <div
-          style="
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem 2rem;
-          "
-        >
-          <div
-            style="
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              gap: 0.75rem;
-              font-size: 0.9rem;
-            "
-          >
-            <!-- YouTube -->
-            <div class="wf-node" style="background: rgba(255, 0, 0, 0.08); border-color: rgba(255, 0, 0, 0.2);">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="#ff0000">
+      <div class="container">
+        <div class="canvas-container">
+          <!-- Dot grid background -->
+          <svg class="canvas-bg" aria-hidden="true">
+            <defs>
+              <pattern id="canvas-dots" x="8" y="8" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="1" cy="1" r="0.8" fill="rgba(62, 85, 113, 0.12)"></circle>
+              </pattern>
+            </defs>
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#canvas-dots)"></rect>
+          </svg>
+
+          <!-- Edge paths -->
+          <svg class="canvas-edges" aria-hidden="true">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(100, 120, 160, 0.4)"/>
+              </marker>
+            </defs>
+            <!-- YouTube → Transcript -->
+            <path d="M 176 44 C 242 44, 242 118, 308 118" fill="none" stroke="rgba(100, 120, 160, 0.35)" stroke-width="2" marker-end="url(#arrow)"/>
+            <!-- Transcript → AI Summary -->
+            <path d="M 468 118 C 534 118, 534 44, 600 44" fill="none" stroke="rgba(100, 120, 160, 0.35)" stroke-width="2" marker-end="url(#arrow)"/>
+            <!-- AI Summary → Obsidian -->
+            <path d="M 760 44 C 826 44, 826 118, 892 118" fill="none" stroke="rgba(100, 120, 160, 0.35)" stroke-width="2" marker-end="url(#arrow)"/>
+          </svg>
+
+          <!-- Node: YouTube -->
+          <div class="canvas-node" style="top: 16px; left: 16px;">
+            <div class="canvas-node-header" style="color: #ff4545;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#ff4545">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
               YouTube
             </div>
+            <div class="canvas-node-body">
+              <div class="canvas-node-field">
+                <span class="canvas-node-field-label">url</span>
+                <span class="canvas-node-field-value">https://youtube.com/watch?v=...</span>
+              </div>
+            </div>
+          </div>
 
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-dim)" stroke-width="2">
-              <polyline points="8 6 2 12 8 18" />
-            </svg>
-
-            <!-- Transcript -->
-            <div class="wf-node">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Node: Transcript -->
+          <div class="canvas-node" style="top: 90px; left: 308px;">
+            <div class="canvas-node-header">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" />
               </svg>
               Transcript
             </div>
+            <div class="canvas-node-body">
+              <div class="canvas-node-field">
+                <span class="canvas-node-field-label">language</span>
+                <span class="canvas-node-field-value">en</span>
+              </div>
+            </div>
+          </div>
 
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-dim)" stroke-width="2">
-              <polyline points="8 6 2 12 8 18" />
-            </svg>
-
-            <!-- AI Summary -->
-            <div class="wf-node" style="border-color: rgba(59, 130, 246, 0.3); color: var(--color-accent);">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Node: AI Summary -->
+          <div class="canvas-node" style="top: 16px; left: 600px;">
+            <div class="canvas-node-header" style="color: var(--color-accent);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
               </svg>
               AI Summary
             </div>
+            <div class="canvas-node-body">
+              <div class="canvas-node-field">
+                <span class="canvas-node-field-label">prompt</span>
+                <span class="canvas-node-field-value">summarize this transcript</span>
+              </div>
+            </div>
+          </div>
 
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-dim)" stroke-width="2">
-              <polyline points="8 6 2 12 8 18" />
-            </svg>
-
-            <!-- Obsidian -->
-            <div class="wf-node" style="border-color: rgba(59, 130, 246, 0.4); color: var(--color-accent); font-weight: 600;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Node: Obsidian -->
+          <div class="canvas-node" style="top: 90px; left: 892px;">
+            <div class="canvas-node-header" style="color: var(--color-accent);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18" />
               </svg>
               Obsidian Note
             </div>
+            <div class="canvas-node-body">
+              <div class="canvas-node-field">
+                <span class="canvas-node-field-label">target</span>
+                <span class="canvas-node-field-value">Everything/Web/</span>
+              </div>
+            </div>
           </div>
 
-          <p
-            style="
-              margin-top: 1.5rem;
-              text-align: center;
-              font-size: 0.8rem;
-              color: var(--color-text-dim);
-            "
-          >
-            "Save the transcript of this YouTube video to my Obsidian vault"
+        </div>
+
+        <div class="canvas-caption-wrapper">
+          <div class="canvas-caption-badge">stackmcp run youtube-to-obsidian</div>
+          <p class="canvas-caption-text">
+            A premade stack — tools connected in the Stack Builder, ready to run from the CLI.
+            <a href="#install" style="color: var(--color-accent);">Install</a> and try it in seconds.
           </p>
         </div>
       </div>
@@ -373,18 +399,132 @@ $ stackmcp run youtube-to-obsidian \
     </footer>
 
     <style is:global>
-      .wf-node {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.7rem 1.25rem;
-        background: var(--color-bg);
+      .canvas-container {
+        position: relative;
+        width: 100%;
+        max-width: 1060px;
+        margin: 0 auto;
+        height: 180px;
+        background: #13131b;
         border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+      }
+
+      .canvas-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .canvas-edges {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .canvas-node {
+        position: absolute;
+        width: 160px;
+        background: #1a1a26;
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: var(--radius-sm);
+        overflow: hidden;
+        z-index: 3;
+        transition: border-color 0.15s;
+      }
+
+      .canvas-node:hover {
+        border-color: rgba(59, 130, 246, 0.3);
+      }
+
+      .canvas-node-header {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.4rem 0.65rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .canvas-node-body {
+        padding: 0.4rem 0.65rem;
+      }
+
+      .canvas-node-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+      }
+
+      .canvas-node-field-label {
+        font-size: 0.6rem;
+        color: var(--color-text-dim);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .canvas-node-field-value {
+        font-size: 0.7rem;
+        color: var(--color-text-muted);
+        font-family: var(--font-mono);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .canvas-caption-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+        text-align: center;
+      }
+
+      .canvas-caption-badge {
+        display: inline-block;
+        padding: 0.35rem 1rem;
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--color-accent);
+        font-family: var(--font-mono);
+      }
+
+      .canvas-caption-text {
         font-size: 0.85rem;
-        font-weight: 500;
-        min-width: 140px;
-        justify-content: center;
+        color: var(--color-text-muted);
+        max-width: 440px;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 1100px) {
+        .canvas-container {
+          max-width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .canvas-container > * {
+          min-width: 1060px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .canvas-container {
+          height: 180px;
+        }
+        .canvas-node {
+          width: 140px;
+        }
       }
 
       .install-box {
